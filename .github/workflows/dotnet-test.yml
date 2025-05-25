@@ -33,20 +33,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test-results
-        path: RestSharpAutomation/TestResults/TestResults/
+        path: RestSharpAutomation/TestResults/TestResults/test_results.trx
 
-    - name: Install ReportGenerator
-      run: dotnet tool install --global dotnet-reportgenerator-globaltool
-
-    - name: Generate HTML Report from TRX
-      run: |
-        reportgenerator \
-          -reports:RestSharpAutomation/TestResults/TestResults/test_results.trx \
-          -targetdir:TestReport \
-          -reporttypes:Html
-
-    - name: Upload HTML Report
-      uses: actions/upload-artifact@v4
-      with:
-        name: html-test-report
-        path: TestReport
