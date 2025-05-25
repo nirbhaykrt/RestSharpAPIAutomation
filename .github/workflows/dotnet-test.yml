@@ -1,7 +1,7 @@
 name: .NET 8 API Automation Tests
 
 on:
-  workflow_dispatch:       # allows manual trigger from GitHub UI
+  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
@@ -26,11 +26,18 @@ jobs:
     - name: Build Solution
       run: dotnet build --configuration Release --no-restore
 
-    - name: Run Tests
+    - name: Create TestResults directory
+      run: mkdir -p TestResults
+
+    - name: Run Tests with TRX logger
       run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=TestResults/test_results.trx"
+
+    - name: List TestResults directory
+      run: ls -l TestResults
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v4
       with:
         name: test-results
         path: TestResults/test_results.trx
+        if-no-files-found: error
