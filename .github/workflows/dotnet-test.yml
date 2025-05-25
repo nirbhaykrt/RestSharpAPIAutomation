@@ -33,4 +33,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: test-results
-        path: '**/TestResults/*.trx'
+        path: TestResults/test_results.trx
