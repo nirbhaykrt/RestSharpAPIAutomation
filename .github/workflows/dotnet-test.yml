@@ -39,7 +39,7 @@ jobs:
     - name: Generate HTML Test Report
       run: |
         reportgenerator \
-          -reports:TestResults/coverage.xml \
+          -reports:TestResults/TestResults/coverage.xml \
           -targetdir:TestReport \
           -reporttypes:Html
 
