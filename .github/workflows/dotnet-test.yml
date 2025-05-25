@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test-results
-        path: RestSharpAutomation/TestResults/TestResults/test_results.trx
+        path: test_results.trx
 
     - name: Install ReportGenerator
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
