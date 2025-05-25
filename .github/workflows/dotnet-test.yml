@@ -39,7 +39,7 @@ jobs:
     - name: Generate HTML Test Report
       run: |
         reportgenerator \
-          -reports:RestSharpAutomation/TestResults/TestResults/coverage.xml \
+          -reports:TestResults/coverage.xml \
           -targetdir:TestReport \
           -reporttypes:Html
 
