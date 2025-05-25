@@ -27,7 +27,7 @@ namespace APIAutomationFramework.Tests.DELETE
         public void DeleteUser()
         {    
             var headers = new Dictionary<string, string> { { "x-api-key", "reqres-free-v1" } };
-            var request = requestBuilder.CreateRequest("/api/users/2", Method.Delete, headers: headers);
+            var request = requestBuilder.CreateRequest("/api/users/23", Method.Delete, headers: headers);
             var response = responseHandler.Execute(request);
             Assert.AreEqual(System.Net.HttpStatusCode.NoContent, response.StatusCode);
             int responseCode = (int)response.StatusCode;
