@@ -26,9 +26,6 @@ jobs:
     - name: Build Solution
       run: dotnet build --configuration Release --no-restore
 
-    - name: Create TestResults directory
-      run: mkdir -p TestResults
-
     - name: Run Tests with TRX logger
       run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=TestResults/test_results.trx"
 
