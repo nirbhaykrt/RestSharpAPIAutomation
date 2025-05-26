@@ -31,6 +31,7 @@ namespace APIAutomationFramework.Tests.GET
             var request = requestBuilder.CreateRequest("/api/users", Method.Get, queryParams: queryParams, headers: headers);
 
             var response = responseHandler.Execute(request);
+            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
             Assert.IsNotNull(response);
 
             int responseCode = (int)response.StatusCode;
@@ -54,6 +55,7 @@ namespace APIAutomationFramework.Tests.GET
             var request = requestBuilder.CreateRequest("/api/users/2", Method.Get, headers: headers);
 
             var response = responseHandler.Execute(request);
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             Assert.IsNotNull(response);
 
             int responseCode = (int)response.StatusCode;
@@ -73,12 +75,11 @@ namespace APIAutomationFramework.Tests.GET
             var request = requestBuilder.CreateRequest("/api/users/23", Method.Get, headers: headers);
 
             var response = responseHandler.Execute(request);
+            Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
             Assert.IsNotNull(response);
 
             int responseCode = (int)response.StatusCode;
             Console.WriteLine($"{responseCode} " + response.StatusCode);
-
-            Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
         }
 
         [TestMethod]
