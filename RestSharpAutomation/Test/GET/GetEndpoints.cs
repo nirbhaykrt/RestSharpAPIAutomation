@@ -31,7 +31,7 @@ namespace APIAutomationFramework.Tests.GET
             var request = requestBuilder.CreateRequest("/api/users", Method.Get, queryParams: queryParams, headers: headers);
 
             var response = responseHandler.Execute(request);
-            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             Assert.IsNotNull(response);
 
             int responseCode = (int)response.StatusCode;
