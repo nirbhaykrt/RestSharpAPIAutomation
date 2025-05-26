@@ -26,9 +26,6 @@ jobs:
     - name: Build Solution
       run: dotnet build --configuration Release --no-restore
 
-    - name: Create TestResults directory
-      run: mkdir -p TestResults
-
     - name: Run Tests with TRX logger
       run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=TestResults/test_results.trx"
 
@@ -36,4 +33,20 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test-results
-        path: TestResults/test_results.trx
+        path: RestSharpAutomation/TestResults/TestResults/test_results.trx
+      
+    - name: Install ReportGenerator
+      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+
+    - name: Generate HTML Test Report
+      run: |
+        reportgenerator \
+          -reports:RestSharpAutomation/TestResults/TestResults/test_results.trx \
+          -targetdir:TestReport \
+          -reporttypes:Html
+
+    - name: Upload HTML Test Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: html-test-report
+        path: TestReport
