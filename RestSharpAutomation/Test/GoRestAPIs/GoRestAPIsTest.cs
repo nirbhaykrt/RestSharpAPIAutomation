@@ -78,8 +78,8 @@ namespace APIAutomationFramework.Tests.GoRestAPIs
             var headers = new Dictionary<string, string> { { "Authorization", token } };
             Object body = new
             {
-                name = "Allasani Peddana",
-                email = "allasani.peddana@mail.com",
+                name = "Nirbhay Kumar",
+                email = "nirbhaykrt@mail.com",
                 gender  ="male",
                 status = "Active"
             };    
