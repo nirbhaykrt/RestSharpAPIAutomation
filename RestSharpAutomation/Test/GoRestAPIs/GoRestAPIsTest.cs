@@ -98,7 +98,7 @@ namespace APIAutomationFramework.Tests.GoRestAPIs
             int userId = TestDataStore.LoadUserId();
             var headers = new Dictionary<string, string> { { "Authorization", token } };
             Console.WriteLine($"User ID: {userId}");
-            var request = requestBuilder.CreateRequest("/public/v2/users/{userId}", Method.Delete, headers: headers);
+            var request = requestBuilder.CreateRequest($"/public/v2/users/{userId}", Method.Delete, headers: headers);
 
             var response = responseHandler.Execute(request);
             Assert.AreEqual(System.Net.HttpStatusCode.NoContent, response.StatusCode);
