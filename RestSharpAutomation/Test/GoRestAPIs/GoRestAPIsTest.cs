@@ -45,7 +45,7 @@ namespace APIAutomationFramework.Tests.GoRestAPIs
 
             foreach (var user in GoRestUser)
             {
-                Console.WriteLine($"{user.Id}: {user.Name} , {user.Email}, {user.Gender}, {user.Status}");
+                Console.WriteLine($"{user.Id}, {user.Name} , {user.Email}, {user.Gender}, {user.Status}");
             }
         }
         [TestMethod]
