@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 namespace APIAutomationFramework.Tests.GoRestAPIs
 {
     [TestClass]
+    [DoNotParallelize]
     public class GoRestAPIsTest
     {
         private IClient clientManager = null!;
@@ -73,7 +74,6 @@ namespace APIAutomationFramework.Tests.GoRestAPIs
         [TestMethod]
         public void Test_03_UpdateUser()
         {
-            Thread.Sleep(2000);
             int userId = TestDataStore.LoadUserId();
             var headers = new Dictionary<string, string> { { "Authorization", token } };
             Object body = new
@@ -95,7 +95,6 @@ namespace APIAutomationFramework.Tests.GoRestAPIs
         [TestMethod]
         public void Test_04_DeleteUser()
         {
-            Thread.Sleep(4000);
             int userId = TestDataStore.LoadUserId();
             var headers = new Dictionary<string, string> { { "Authorization", token } };
             Console.WriteLine($"User ID: {userId}");
